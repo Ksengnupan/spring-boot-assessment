@@ -19,11 +19,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // Disable CSRF for testing
+            .csrf(csrf -> csrf.disable())
             .headers(headers -> headers
                 .frameOptions(frameOptions -> frameOptions.disable()))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/h2-console/**").permitAll()  // Allow H2 Console access
+                .requestMatchers("/h2-console/**").permitAll() // Allow access to H2 console
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().authenticated()
             )
@@ -35,12 +35,13 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder()
-                .username("sengnupan")
-                .password(passwordEncoder().encode("sengnupan00"))
+                .username("user")
+                .password(passwordEncoder().encode("password"))
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user);
     }
+ 
 
     @Bean
     public PasswordEncoder passwordEncoder() {
