@@ -22,12 +22,12 @@ public class openApi {
                         .contact(new Contact()
                                 .name("Seng Nu Pan Kumgyi")
                                 .email("sengnupan.kumgyi@gmail.com"))
-                                // .url("https://yourwebsite.com"))
+                                
                         .license(new License()
                                 .name("Apache 2.0")
-                                .url("http://springdoc.org")));
-                // .externalDocs(new ExternalDocumentation()
-                //         .description("Project Documentation")
-                //         .url("https://github.com/your-repo"));
+                                .url("http://springdoc.org")))
+                        .externalDocs(new ExternalDocumentation()
+                        .description("Project Documentation")
+                        .url("https://github.com/Ksengnupan/spring-boot-assessment.git"));
     }
 }
